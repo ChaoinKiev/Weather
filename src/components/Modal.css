@@ -1,0 +1,152 @@
+/** @format */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+   
+
+  z-index: 9999; /* Set a higher z-index value */
+}
+
+.modal {
+  width: 60%;
+  height: 100%;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  z-index: 10000; /* Set a higher z-index value */
+}
+
+.modal-header {
+  height: 20%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-content {
+  /* flex: 1; */
+  height: 85%;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+}
+
+.divider {
+  border: 0.5px solid #ccc;
+  margin: 30px 0;
+}
+
+.modal-footer {
+  margin-top: 20px;
+  margin-bottom: 0px;
+  height: 20%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.cancel-btn {
+  background-color: #ccc;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  cursor: pointer;
+  margin-right: 20px;
+  width: 100px;
+  height: 35px;
+}
+
+.save-btn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  cursor: pointer;
+  width: 100px;
+  height: 35px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 100px;
+}
+
+label {
+  margin-bottom: 4px; /* Add a little margin below the label */
+}
+
+input {
+  flex: 1; /* Use flex: 1 to make the input expand to fill the available space */
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  width: calc(100% - 20px); /* Assuming the dropdown icon width is 20px */
+}
+
+.required {
+  color: red;
+  margin-right: 4px;
+}
+.input-with-dropdown {
+  position: relative;
+}
+
+.dropdown-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.dropdown-icon.open {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.dropdown-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-top: none;
+  border-radius: 4px;
+  width: calc(100% - 4px); /* Assuming the dropdown icon width is 20px */
+  max-height: 1000px;
+  overflow-y: auto;
+  z-index: 999;
+  display: flex; /* Use flexbox */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+}
+
+.dropdown-item {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.react-datepicker {
+  margin: auto; /* Center horizontally */
+}
+
+
