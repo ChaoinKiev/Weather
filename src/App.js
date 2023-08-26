@@ -1,12 +1,12 @@
 
 import React from 'react';
 // import './App.css';
-import LeftSide from './components/LeftSide';
+import TripSelector from './components/TripSelector';
 
 function App() {
   return (
     <div className="App">
-      <LeftSide />
+      <TripSelector />
     </div>
   );
 }
