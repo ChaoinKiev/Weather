@@ -42,7 +42,7 @@ const WeatherDisplay = ({
         setCountdown({ days, hours, minutes, seconds });
       }
     }
-  }, [selectedTripIndex]);
+  }, [selectedTripIndex,trips]);
 
   useEffect(() => {
     const apiKey = "45XHHL2JKQC3XPVRRYAVH2AGS";

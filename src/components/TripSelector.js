@@ -15,17 +15,12 @@ const TripSelector = () => {
   const [selectedTripIndex, setSelectedTripIndex] = useState(0);
   const [searchQuery, setSearchQuery] = useState("");
 
-  const today = new Date();
-  const formattedToday = today.toISOString().split('T')[0]; // Format today's date to 'YYYY-MM-DD'
-
-  const sevenDaysLater = new Date(today);
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1); // Add 1 day to get tomorrow's date
+  const formattedTomorrow = tomorrow.toISOString().split('T')[0]; 
+  const sevenDaysLater = new Date(tomorrow);
   sevenDaysLater.setDate(sevenDaysLater.getDate() + 6); // Add 6 days to get the end date
-  const formattedSeveralDaysLater = sevenDaysLater.toISOString().split('T')[0]; // Format end date to 'YYYY-MM-DD'
-
- 
-  console.log(trips.length)
-  
-
+  const formattedSevenDaysLater = sevenDaysLater.toISOString().split('T')[0]; // Format end date to 'YYYY-MM-DD'  
 
   useEffect(() => {
     // Fetch weather data for the initial trip
@@ -33,14 +28,14 @@ const TripSelector = () => {
         
   const apiKey = "45XHHL2JKQC3XPVRRYAVH2AGS";
   const apiUrl = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/";
-  const fullUrl = `${apiUrl}Beijing/${formattedToday}/${formattedSeveralDaysLater}?unitGroup=metric&include=days&key=${apiKey}&contentType=json`;
+  const fullUrl = `${apiUrl}Beijing/${formattedTomorrow}/${formattedSevenDaysLater}?unitGroup=metric&include=days&key=${apiKey}&contentType=json`;
   
   if (trips.length === 0) { // Check if trips array is empty before initializing it
     try {
       const response = await axios.get(fullUrl);
           const initialTrip = {
             city: "Beijing",
-            date: `${formattedToday} - ${formattedSeveralDaysLater}`,
+            date: `${formattedTomorrow} - ${formattedSevenDaysLater}`,
             image: `${process.env.PUBLIC_URL}/images/beijing.jpeg`,
             weatherForecast: response.data?.days || [],
           };
@@ -51,7 +46,7 @@ const TripSelector = () => {
       }
     }; 
     fetchInitialWeatherData();
-  }, [today]); 
+  }, [formattedTomorrow]); 
   
   
 
